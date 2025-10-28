@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 public class ShoppingCart {
-    List<String>  items = new ArrayList<>();
+  private List<String>  items = new ArrayList<>();
+
+    public List<String> getItems() {
+        return items;
+    }
 
 }

@@ -12,30 +12,31 @@ package com.github.alina.session22.homework.challenge;
 //After implementing the solution, demonstrate its usage in a main method by creating a list of shopping carts, finding, and printing the K most frequently purchased items. Ensure to handle edge cases such as when K is larger than the number of unique items in the shopping carts.
 //
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Challenge {
     public static void main(String[] args) {
         ShoppingCart cart = new ShoppingCart();
-        cart.items = new ArrayList<>();
-        cart.items.add("item1");
-        cart.items.add("item2");
+        cart.getItems().add("item1");
+        cart.getItems().add("item1");
+        cart.getItems().add("item2");
         ShoppingCart car2 = new ShoppingCart();
-        car2.items = new ArrayList<>();
-        car2.items.add("item3");
-        car2.items.add("item4");
-        car2.items.add("item3");
-    ShoppingCardHistory cardHistory = new ShoppingCardHistory();
+        car2.getItems().add("item3");
+        car2.getItems().add("item4");
+        car2.getItems().add("item3");
+    ShoppingCartHistory cardHistory = new ShoppingCartHistory();
     cardHistory.addItems(cart);
     cardHistory.addItems(car2);
-    System.out.println(findTheOccurance(cardHistory));
+    var frequency = findTheOccurance(cardHistory);
+    System.out.println(frequency);
+    System.out.println(findMostBought(frequency));
+
     }
-    static Map<String, Integer> findTheOccurance(ShoppingCardHistory shoppingCardHistory) {
+    static Map<String, Integer> findTheOccurance(ShoppingCartHistory shoppingCardHistory) {
         Map<String, Integer> ocurance = new HashMap<>();
-        for(String id: shoppingCardHistory.items) {
+        for(String id: shoppingCardHistory.getItems()) {
             ocurance.put(id, ocurance.getOrDefault(id, 0) + 1);//replace the if else
 //            if(!ocurance.containsKey(id)) {
 //                ocurance.put(id, 1);
@@ -43,7 +44,9 @@ public class Challenge {
 //                ocurance.put(id, ocurance.get(id) + 1);
 //            }
         }
-
         return ocurance;
+    }
+    static String findMostBought(Map<String, Integer> frequency) {
+        return Collections.max(frequency.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
 }
