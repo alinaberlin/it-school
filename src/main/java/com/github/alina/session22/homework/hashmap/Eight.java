@@ -15,6 +15,6 @@ public class Eight {
         System.out.println("The existence is" + " "+ existValue(map, 2));
     }
     static boolean existValue(Map<Integer, Integer> map, Integer value) {
-        return map.containsKey(value);
+        return map.containsValue(value);
     }
 }
