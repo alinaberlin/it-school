@@ -11,8 +11,7 @@ public class Six {
         map.put(5, 5);
         map.put(6, 6);
         map.put(7, 7);
-        Map<Integer,Integer> map2 = new HashMap<Integer, Integer>();
-        map2= (Map<Integer, Integer>) map.clone();
+        Map<Integer,Integer> map2 = (Map<Integer, Integer>) map.clone();
         System.out.println("Clone is" + map2);
     }
 }
