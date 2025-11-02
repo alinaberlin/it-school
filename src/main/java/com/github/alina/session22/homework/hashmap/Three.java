@@ -10,7 +10,7 @@ public class Three {
         map.put(1, 1);
         map.put(2, 2);
         map.put(3, 3);
-        HashMap<Integer, Integer> map2 = new HashMap<>() ;
+        HashMap<Integer, Integer> map2 = new HashMap<>(map) ;
         map2.putAll(map);
         System.out.println(map2);
 //        map2.entrySet().stream().forEach(entry -> {
